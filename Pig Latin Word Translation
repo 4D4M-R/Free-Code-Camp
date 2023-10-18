@@ -1,0 +1,33 @@
+function translatePigLatin(str) {
+
+const vowels = ['a', 'e', 'i', 'o', 'u']; //Here we are setting a constant array with our vowels
+
+// Now we need to check if the first character in the string is a vowel. If it is we add 'way' to the end of it :)
+
+if (vowels.includes(str[0])) {
+return str + "way"
+}
+
+// We want to find if the string starts with a consonant. If it does me also want to find out how many consanants there are at the start until we reach our first vowel. This is a consanant cluster :)
+
+let index = 0;
+for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) {
+        index = i;
+        break;
+    }
+}
+
+// We then want to rearrange the word into Pig Latin. If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add ay to it. If a word begins with a vowel, just add way at the end.
+
+const consonantCluster = str.slice(0, index);
+const restOfWord = str.slice(index);
+
+return restOfWord + consonantCluster + "ay"
+
+
+}
+
+translatePigLatin("consonant");
+
+console.log(translatePigLatin("consonant"))
