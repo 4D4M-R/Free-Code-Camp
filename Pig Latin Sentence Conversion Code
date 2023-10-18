@@ -1,0 +1,31 @@
+function convertToPigLatin(sentence) {
+    // Define the vowels
+    const vowels = ["a", "e", "i", "o", "u"];
+
+    // Split the sentence into words
+    let words = sentence.split(" ");
+
+    // Convert each word to Pig Latin
+    let pigLatinWords = words.map(word => {
+        // If the word starts with a vowel
+        if (vowels.includes(word[0])) {
+            return word + "way";
+        } else {
+            // Find the index of the first vowel in the word
+            let index = word.length;
+            for (let i = 0; i < word.length; i++) {
+                if (vowels.includes(word[i])) {
+                    index = i;
+                    break;
+                }
+            }
+            // Move the starting consonant or consonant cluster to the end and add "ay"
+            return word.slice(index) + word.slice(0, index) + "ay";
+        }
+    });
+
+    // Join the words back together to form the Pig Latin sentence
+    return pigLatinWords.join(" ");
+}
+
+console.log(convertToPigLatin("hello world")); // "ellohay orldway"
