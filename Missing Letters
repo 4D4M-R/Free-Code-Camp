@@ -1,0 +1,27 @@
+function fearNotLetter(str) {
+
+// We need to loop through our string checking each letter with the next one via ascii code
+
+for (let i = 0; i < str.length - 1; i++) {
+
+    let currentLetterCode = str.charCodeAt(i);
+    let nextLetterCode = str.charCodeAt(i + 1);
+
+// If (nextLetterCode - currentLetterCode > 1) that means we have found a gap in the letters :)
+
+    if (nextLetterCode - currentLetterCode > 1) {
+
+// If we find a missing letter we then use the ASCII value of the current letter and add 1 to it to then give us the ASCII value of the missing letter :)
+
+        let missingLetter = String.fromCharCode(currentLetterCode + 1);
+
+        return missingLetter;
+    }
+}
+
+  return undefined;
+}
+
+fearNotLetter("abce");
+
+console.log(fearNotLetter("abce"))
