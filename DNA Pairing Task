@@ -1,0 +1,45 @@
+function pairElement(str) {
+
+// First step we need to initialise an empty array that we will call 'pairs'
+
+let pairs = [];
+
+// Second step we loop through each character in the string 'str'
+
+for(let char of str) {
+
+    // Third step we use a switch statement to check the character and determine its pair type
+
+    switch (char) {
+
+case 'A':
+      // If the character is 'A', it is paired with 'T'
+      pairs.push(['A', 'T']);
+      break;
+
+case 'T':
+      // If 'T' pair with 'A'
+      pairs.push(['T', 'A']);
+      break;
+
+case 'C':
+    // If 'C' pair with 'G'
+    pairs.push(['C', 'G']);
+    break;
+
+case 'G':
+    // If 'G' pair with 'C'
+    pairs.push(['G', 'C']);
+    break;          
+
+
+    }
+
+}
+
+  return pairs;
+}
+
+pairElement("GCG");
+
+console.log(pairElement("GCG"))
