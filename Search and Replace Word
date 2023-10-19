@@ -1,0 +1,25 @@
+function myReplace(str, before, after) {
+
+// First step is to find the word we would like to replace :)
+
+let index = str.indexOf(before);
+
+// Next We want to preserve the case of the text.
+
+if (before[0] === before[0].toUpperCase()) {
+  after = after[0].toUpperCase() + after.slice(1);
+  }
+  else {
+    after = after[0].toLowerCase() + after.slice(1);
+  }
+
+  // Now we just have to replace the word
+
+  str = str.replace(before, after);
+
+  return str;
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+
+console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"))
